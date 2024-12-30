@@ -48,3 +48,10 @@ class Gameboard {
     return this.ships.map((ship) => ship.isSunk());
   }
 }
+
+class Player {
+  constructor(name) {
+    this.name = name;
+    this.gameboard = new Gameboard();
+  }
+}
