@@ -1,19 +1,4 @@
-class Ship {
-  constructor(length) {
-    this.length = length;
-    this.hits = 0;
-  }
-
-  hit() {
-    this.hits++;
-  }
-
-  isSunk() {
-    return this.hits >= this.length;
-  }
-}
-
-class Gameboard {
+export class Gameboard {
   constructor() {
     this.board = Array.from({ length: 10 }, () => Array(10).fill(null));
     this.missedShots = [];
@@ -46,12 +31,5 @@ class Gameboard {
 
   allShipReport() {
     return this.ships.map((ship) => ship.isSunk());
-  }
-}
-
-class Player {
-  constructor(name) {
-    this.name = name;
-    this.gameboard = new Gameboard();
   }
 }

@@ -1,7 +1,7 @@
 {
   "name": "odin-project-battleship",
   "version": "1.0.0",
-  "main": "script.js",
+  "main": "index.js",
   "scripts": {
     "test": "jest"
   },
