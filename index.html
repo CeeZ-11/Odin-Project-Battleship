@@ -4,8 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Battleship</title>
-    <script src="script.js" defer></script>
+    <script src="index.js" defer></script>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <div>
+      <div id="container">
+        <h1>Battleship</h1>
+        <div id="board">
+          <!-- Board will be dynamically generated here -->
+        </div>
+        <div id="controls">
+          <button id="start">Start Game</button>
+          <button id="reset">Reset</button>
+        </div>
+        <div id="scoreboard">
+          <p>Player 1 Score: <span id="player1Score">0</span></p>
+          <p>Player 2 Score: <span id="player2Score">0</span></p>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
