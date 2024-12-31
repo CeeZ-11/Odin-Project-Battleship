@@ -8,7 +8,6 @@ const GameController = () => {
   function initializer() {
     player.gameboard.placeShip(new Ship(3), 0, 0, "vertical");
     computer.gameboard.placeShip(new Ship(3), 4, 4, "horizontal");
-    console.log("working");
     renderBoards();
   }
 
@@ -22,5 +21,11 @@ const GameController = () => {
   return { initializer };
 };
 
-const game = GameController();
-game.initializer();
+const button = document
+  .getElementById("start")
+  .addEventListener("click", () => {
+    const game = GameController();
+    game.initializer();
+  });
+
+button;
