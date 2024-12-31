@@ -23,8 +23,8 @@ body {
   --border-color: #415a77;
   --grid-line-color: #3e4c59;
   --cell-bg-color: #fff;
-  --cell-border-color: #ffffff;
-  --cell-hover-bg-color: #ffffff;
+  --cell-border-color: #415a77;
+  --cell-hover-bg-color: #778da9;
 }
 
 img,
