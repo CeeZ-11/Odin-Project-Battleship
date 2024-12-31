@@ -5,6 +5,21 @@ export class Gameboard {
     this.ships = [];
   }
 
+  renderBoard() {
+    return this.board
+      .map((row, rowIndex) =>
+        row
+          .map(
+            (cell, colIndex) =>
+              `<div class="cell" data-row="${rowIndex}" data-col="${colIndex}">${
+                cell ? "S" : ""
+              }</div>`
+          )
+          .join("")
+      )
+      .join("");
+  }
+
   placeShip(ship, row, col, direction) {
     if (direction === "vertical") {
       if (row + ship.length > 10) return false;
