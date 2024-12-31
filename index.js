@@ -28,7 +28,26 @@ const GameController = () => {
     }
   }
 
-  return { initializer };
+  function computerTurn() {
+    let x, y;
+    do {
+      x = getRandomCoordinate();
+      y = getRandomCoordinate();
+    } while (
+      computer.gameboard.missedShots.some(([mx, my]) => mx === x && my === y)
+    );
+    const result = computer.attack(player.gameboard, x, y);
+    console.log(`Computer attacked (${x}, ${y}) and it was a ${result}`);
+    if (player.gameboard.allShipsSunk()) {
+      console.log("Computer wins!");
+    }
+  }
+
+  function getRandomCoordinate() {
+    return Math.floor(Math.random() * 10);
+  }
+
+  return { initializer, playerTurn };
 };
 
 const button = document
