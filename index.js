@@ -18,6 +18,16 @@ const GameController = () => {
       computer.gameboard.renderBoard();
   }
 
+  function playerTurn(x, y) {
+    const result = player.attack(computer.gameboard, x, y);
+    console.log(`Player attacked (${x}, ${y}) and it was a ${result}`);
+    if (computer.gameboard.allShipsSunk()) {
+      console.log("Player wins!");
+    } else {
+      computerTurn();
+    }
+  }
+
   return { initializer };
 };
 
