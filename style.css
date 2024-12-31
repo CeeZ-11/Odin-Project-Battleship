@@ -5,11 +5,23 @@
 
 * {
   margin: 0;
+  --bg-color: #0d1b2a;
+  --primary-color: #e0e1dd;
+  --secondary-color: #778da9;
+  --btn-bg-color: #1b263b;
+  --btn-bg-hv-color: #415a77;
+  --btn-text-color: #e0e1dd;
+  --line-color: #3e4c59;
+  --error-alert-color: #ff6b6b;
+  --highlight-color: #f4d35e;
+  --border-color: #415a77;
+  --grid-line-color: #3e4c59;
 }
 
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  overflow: hidden;
 }
 
 img,
@@ -41,4 +53,46 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
+}
+
+#container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+  gap: 10px;
+  padding-top: 10px;
+}
+
+button {
+  background-color: var(--btn-bg-color);
+  color: var(--btn-text-color);
+  border: 1px solid var(--border-color);
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: var(--btn-bg-hv-color);
+}
+
+.grid {
+  border: 1px solid var(--grid-line-color);
+}
+
+.active {
+  background-color: var(--highlight-color);
+}
+
+.error {
+  color: var(--error-color);
+}
+
+#scoreboard {
+  display: flex;
+  gap: 15px;
 }
