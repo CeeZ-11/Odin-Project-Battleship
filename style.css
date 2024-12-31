@@ -5,6 +5,12 @@
 
 * {
   margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
   --bg-color: #0d1b2a;
   --primary-color: #e0e1dd;
   --secondary-color: #778da9;
@@ -17,14 +23,8 @@
   --border-color: #415a77;
   --grid-line-color: #3e4c59;
   --cell-bg-color: #fff;
-  --cell-border-color: #3e4c59;
-  --cell-hover-bg-color: #415a77;
-}
-
-body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  overflow: hidden;
+  --cell-border-color: #ffffff;
+  --cell-hover-bg-color: #ffffff;
 }
 
 img,

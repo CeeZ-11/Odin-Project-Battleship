@@ -2,6 +2,7 @@
   "name": "odin-project-battleship",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "jest"
   },
@@ -12,7 +13,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
   "bugs": {
     "url": "https://github.com/CeeZ-11/Odin-Project-Battleship/issues"
   },

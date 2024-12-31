@@ -1,5 +1,5 @@
-import { Player } from "./player";
-import { Ship } from "./ship";
+import { Player } from "./player.js";
+import { Ship } from "./ship.js";
 
 const GameController = () => {
   const player = new Player("Player");
@@ -8,6 +8,7 @@ const GameController = () => {
   function initializer() {
     player.gameboard.placeShip(new Ship(3), 0, 0, "vertical");
     computer.gameboard.placeShip(new Ship(3), 4, 4, "horizontal");
+    console.log("working");
     renderBoards();
   }
 
