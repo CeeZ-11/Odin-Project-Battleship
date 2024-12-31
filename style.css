@@ -16,6 +16,9 @@
   --highlight-color: #f4d35e;
   --border-color: #415a77;
   --grid-line-color: #3e4c59;
+  --cell-bg-color: #fff;
+  --cell-border-color: #3e4c59;
+  --cell-hover-bg-color: #415a77;
 }
 
 body {
@@ -95,4 +98,28 @@ button:hover {
 #scoreboard {
   display: flex;
   gap: 15px;
+}
+
+#player-board,
+#computer-board {
+  display: grid;
+  grid-template-columns: repeat(10, 30px);
+  grid-template-rows: repeat(10, 30px);
+  gap: 2px;
+}
+
+.cell {
+  width: 30px;
+  height: 30px;
+  background-color: var(--cell-bg-color);
+  border: 1px solid var(--cell-border-color);
+  text-align: center;
+  line-height: 30px;
+  color: var(--primary-color);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cell:hover {
+  background-color: var(--cell-hover-bg-color);
 }
