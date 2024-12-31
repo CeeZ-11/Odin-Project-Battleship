@@ -16,9 +16,12 @@ const GameController = () => {
       player.gameboard.board();
     document.getElementById("computer-board").innerHTML =
       computer.gameboard.board();
+    console.log("Player Board:", player.gameboard.board);
+    console.log("Computer Board:", computer.gameboard.board);
   }
 
   return { initializer };
 };
 
-GameController.initializer();
+const game = GameController();
+game.initializer();
