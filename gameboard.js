@@ -7,15 +7,24 @@ export class Gameboard {
 
   placeShip(ship, row, col, direction) {
     if (direction === "vertical") {
+      if (row + ship.length > 10) return false;
+      for (let i = 0; i < ship.length; i++) {
+        if (this.board[col][row + i] !== null) return false;
+      }
       for (let i = 0; i < ship.length; i++) {
         this.board[col][row + i] = ship;
       }
     } else {
+      if (col + ship.length > 10) return false;
+      for (let i = 0; i < ship.length; i++) {
+        if (this.board[col + i][row] !== null) return false;
+      }
       for (let i = 0; i < ship.length; i++) {
         this.board[col + i][row] = ship;
       }
     }
     this.ships.push(ship);
+    return true;
   }
 
   receiveAttack(row, col) {
