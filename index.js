@@ -13,11 +13,9 @@ const GameController = () => {
 
   function renderBoards() {
     document.getElementById("player-board").innerHTML =
-      player.gameboard.board();
+      player.gameboard.renderBoard();
     document.getElementById("computer-board").innerHTML =
-      computer.gameboard.board();
-    console.log("Player Board:", player.gameboard.board);
-    console.log("Computer Board:", computer.gameboard.board);
+      computer.gameboard.renderBoard();
   }
 
   return { initializer };
