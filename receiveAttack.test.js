@@ -1,15 +1,10 @@
-import { Gameboard } from "./gameboard.js";
 import { Ship } from "./ship.js";
 import { Player } from "./player.js";
 
 const player2 = new Player("Player 2");
-const gameboard = new Gameboard();
 
-gameboard.placeShip(new Ship(3), 0, 0, "vertical");
+player2.gameboard.placeShip(new Ship(3), 4, 4, "horizontal");
 
-console.log(gameboard.receiveAttack(0, 0));
-console.log(gameboard.receiveAttack(1, 0));
-console.log(gameboard.receiveAttack(2, 0));
-
-console.log(gameboard.receiveAttack(3, 0));
-console.log(gameboard.receiveAttack(0, 1));
+console.log(player2.gameboard.receiveAttack(4, 5));
+console.log(player2.gameboard.receiveAttack(4, 4));
+console.log(player2.gameboard.receiveAttack(4, 7));
