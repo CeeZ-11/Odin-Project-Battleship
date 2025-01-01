@@ -30,12 +30,16 @@ const GameController = () => {
     inputX.type = "number";
     inputX.placeholder = "X";
     inputX.classList.add("x");
+    inputX.min = 0;
+    inputX.max = 10;
     attackInput.appendChild(inputX);
 
     const inputY = document.createElement("input");
     inputY.type = "number";
     inputY.placeholder = "Y";
     inputY.classList.add("y");
+    inputY.min = 0;
+    inputY.max = 10;
     attackInput.appendChild(inputY);
   }
 
