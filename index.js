@@ -5,10 +5,9 @@ import {
 import { Player } from "./player.js";
 import { Ship } from "./ship.js";
 
+const player = new Player("Player");
+const computer = new Player("Computer");
 export const GameController = () => {
-  const player = new Player("Player");
-  const computer = new Player("Computer");
-
   function initializer() {
     player.gameboard.placeShip(new Ship(3), 0, 0, "vertical");
     computer.gameboard.placeShip(new Ship(3), 4, 4, "horizontal");
@@ -22,6 +21,7 @@ export const GameController = () => {
       "Computer's ship coordinates:",
       computer.gameboard.getShipCoordinates()
     );
+    console.log(JSON.stringify(computer.gameboard));
   }
 
   function renderBoards() {
@@ -71,7 +71,7 @@ export const GameController = () => {
   function playerTurn(x, y) {
     const result = player.attack(computer.gameboard, x, y);
     console.log(`Player attacked (${x}, ${y}) and it was a ${result}`);
-    if (computer.gameboard.allShipReport()) {
+    if (computer.gameboard.allShipReport() === true) {
       console.log("Player wins!");
     } else {
       computerTurn();
@@ -88,7 +88,7 @@ export const GameController = () => {
     );
     const result = computer.attack(player.gameboard, x, y);
     console.log(`Computer attacked (${x}, ${y}) and it was a ${result}`);
-    if (player.gameboard.allShipReport()) {
+    if (player.gameboard.allShipReport() === true) {
       console.log("Computer wins!");
     }
   }

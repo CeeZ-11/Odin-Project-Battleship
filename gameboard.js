@@ -44,9 +44,10 @@ export class Gameboard {
 
   receiveAttack(row, col) {
     const target = this.board[row][col];
+    console.log(target);
     if (target) {
       target.hit();
-      return "target hit" + target.hit();
+      return "target hit " + target.hit();
     } else {
       this.missedShots.push([row, col]);
       return "target miss";
