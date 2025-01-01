@@ -20,7 +20,19 @@ export function addFormSubmitListener(formId) {
       const x = parseInt(inputX.value, 10);
       const y = parseInt(inputY.value, 10);
       const game = GameController();
-      game.playerTurn(x, y);
+
+      if (isNaN(x) || isNaN(y) || inputX.value === "" || inputY.value === "") {
+        alert("Invalid input. Please enter a number between 0 and 9.");
+        return;
+      } else if (x < 0 || x > 9 || y < 0 || y > 9) {
+        alert("Invalid input. Please enter a number between 0 and 9.");
+        return;
+      } else {
+        game.playerTurn(x, y);
+        form.reset();
+        inputX.focus();
+        inputX.select();
+      }
     });
   }
 }
