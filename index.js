@@ -75,7 +75,9 @@ export const GameController = () => {
   return { initializer, playerTurn, displayShipHitCounts };
 };
 
-addStartButtonListener();
+document.addEventListener("DOMContentLoaded", () => {
+  addStartButtonListener();
+});
 
 /* function renderAttackInput() {
   const attackInput = document.getElementById("attack");
