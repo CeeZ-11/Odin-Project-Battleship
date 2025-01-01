@@ -5,7 +5,6 @@ export function addStartButtonListener() {
   if (button) {
     button.addEventListener("click", () => {
       const game = GameController();
-      game.initializer();
     });
   }
 }

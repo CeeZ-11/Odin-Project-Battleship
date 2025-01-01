@@ -76,7 +76,9 @@ export const GameController = () => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+  const game = GameController();
   addStartButtonListener();
+  game.initializer();
 });
 
 /* function renderAttackInput() {
