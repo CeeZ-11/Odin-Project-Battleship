@@ -9,6 +9,7 @@ const GameController = () => {
     player.gameboard.placeShip(new Ship(3), 0, 0, "vertical");
     computer.gameboard.placeShip(new Ship(3), 4, 4, "horizontal");
     renderBoards();
+    renderAttackInput();
   }
 
   function renderBoards() {
@@ -16,6 +17,26 @@ const GameController = () => {
       player.gameboard.renderBoard();
     document.getElementById("computer-board").innerHTML =
       computer.gameboard.renderBoard();
+  }
+
+  function renderAttackInput() {
+    const attackInput = document.getElementById("attack");
+    const button = document.createElement("button");
+    button.textContent = "Attack";
+    button.classList.add("attack");
+    attackInput.appendChild(button);
+
+    const inputX = document.createElement("input");
+    inputX.type = "number";
+    inputX.placeholder = "X";
+    inputX.classList.add("x");
+    attackInput.appendChild(inputX);
+
+    const inputY = document.createElement("input");
+    inputY.type = "number";
+    inputY.placeholder = "Y";
+    inputY.classList.add("y");
+    attackInput.appendChild(inputY);
   }
 
   function playerTurn(x, y) {
