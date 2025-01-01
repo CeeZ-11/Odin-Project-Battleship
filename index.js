@@ -1,7 +1,11 @@
+import {
+  addStartButtonListener,
+  addFormSubmitListener,
+} from "./eventListeners.js";
 import { Player } from "./player.js";
 import { Ship } from "./ship.js";
 
-const GameController = () => {
+export const GameController = () => {
   const player = new Player("Player");
   const computer = new Player("Computer");
 
@@ -34,6 +38,7 @@ const GameController = () => {
     form.appendChild(button);
 
     const inputX = document.createElement("input");
+    inputX.id = "attack-x";
     inputX.type = "number";
     inputX.placeholder = "X";
     inputX.classList.add("x");
@@ -42,6 +47,7 @@ const GameController = () => {
     form.appendChild(inputX);
 
     const inputY = document.createElement("input");
+    inputY.id = "attack-y";
     inputY.type = "number";
     inputY.placeholder = "Y";
     inputY.classList.add("y");
@@ -50,12 +56,14 @@ const GameController = () => {
     form.appendChild(inputY);
 
     attackInput.appendChild(form);
+
+    addFormSubmitListener("attack-form");
   }
 
   function playerTurn(x, y) {
     const result = player.attack(computer.gameboard, x, y);
     console.log(`Player attacked (${x}, ${y}) and it was a ${result}`);
-    if (computer.gameboard.allShipsSunk()) {
+    if (computer.gameboard.allShipReport()) {
       console.log("Player wins!");
     } else {
       computerTurn();
@@ -72,7 +80,7 @@ const GameController = () => {
     );
     const result = computer.attack(player.gameboard, x, y);
     console.log(`Computer attacked (${x}, ${y}) and it was a ${result}`);
-    if (player.gameboard.allShipsSunk()) {
+    if (player.gameboard.allShipReport()) {
       console.log("Computer wins!");
     }
   }
@@ -84,11 +92,4 @@ const GameController = () => {
   return { initializer, playerTurn };
 };
 
-const button = document
-  .getElementById("start")
-  .addEventListener("click", () => {
-    const game = GameController();
-    game.initializer();
-  });
-
-button;
+addStartButtonListener();
