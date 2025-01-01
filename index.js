@@ -24,10 +24,14 @@ const GameController = () => {
 
     attackInput.innerHTML = "";
 
+    const form = document.createElement("form");
+    form.id = "attack-form";
+    form.noValidate = true;
+
     const button = document.createElement("button");
     button.textContent = "Attack";
     button.classList.add("attack");
-    attackInput.appendChild(button);
+    form.appendChild(button);
 
     const inputX = document.createElement("input");
     inputX.type = "number";
@@ -35,7 +39,7 @@ const GameController = () => {
     inputX.classList.add("x");
     inputX.min = 0;
     inputX.max = 10;
-    attackInput.appendChild(inputX);
+    form.appendChild(inputX);
 
     const inputY = document.createElement("input");
     inputY.type = "number";
@@ -43,7 +47,9 @@ const GameController = () => {
     inputY.classList.add("y");
     inputY.min = 0;
     inputY.max = 10;
-    attackInput.appendChild(inputY);
+    form.appendChild(inputY);
+
+    attackInput.appendChild(form);
   }
 
   function playerTurn(x, y) {
