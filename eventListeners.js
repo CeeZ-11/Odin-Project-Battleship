@@ -29,6 +29,7 @@ export function addFormSubmitListener(formId) {
         return;
       } else {
         game.playerTurn(x, y);
+        game.displayShipHitCounts();
         form.reset();
         inputX.focus();
         inputX.select();

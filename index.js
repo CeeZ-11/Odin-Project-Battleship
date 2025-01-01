@@ -97,7 +97,30 @@ export const GameController = () => {
     return Math.floor(Math.random() * 10);
   }
 
-  return { initializer, playerTurn };
+  function displayShipHitCounts() {
+    const playerShipHitCount = document.getElementById("player-hit");
+    const computerShipHitCount = document.getElementById("computer-hit");
+
+    const playerHitCounts = player.getShipHitCounts();
+    const computerHitCounts = computer.getShipHitCounts();
+
+    playerShipHitCount.innerHTML = "";
+    computerShipHitCount.innerHTML = "";
+
+    const playerTotalHits = playerHitCounts.reduce(
+      (sum, hits) => sum + hits,
+      0
+    );
+    const computerTotalHits = computerHitCounts.reduce(
+      (sum, hits) => sum + hits,
+      0
+    );
+
+    playerShipHitCount.innerHTML = playerTotalHits;
+    computerShipHitCount.innerHTML = computerTotalHits;
+  }
+
+  return { initializer, playerTurn, displayShipHitCounts };
 };
 
 addStartButtonListener();

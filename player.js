@@ -8,4 +8,8 @@ export class Player {
   attack(opponentGameboard, x, y) {
     return opponentGameboard.receiveAttack(x, y);
   }
+
+  getShipHitCounts() {
+    return this.gameboard.ships.map((ship) => ship.hits);
+  }
 }
