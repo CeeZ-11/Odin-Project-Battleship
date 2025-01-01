@@ -104,20 +104,8 @@ export const GameController = () => {
     const playerHitCounts = player.getShipHitCounts();
     const computerHitCounts = computer.getShipHitCounts();
 
-    playerShipHitCount.innerHTML = "";
-    computerShipHitCount.innerHTML = "";
-
-    const playerTotalHits = playerHitCounts.reduce(
-      (sum, hits) => sum + hits,
-      0
-    );
-    const computerTotalHits = computerHitCounts.reduce(
-      (sum, hits) => sum + hits,
-      0
-    );
-
-    playerShipHitCount.innerHTML = playerTotalHits;
-    computerShipHitCount.innerHTML = computerTotalHits;
+    playerShipHitCount.innerHTML = playerHitCounts;
+    computerShipHitCount.innerHTML = computerHitCounts;
   }
 
   return { initializer, playerTurn, displayShipHitCounts };

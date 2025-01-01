@@ -47,7 +47,7 @@ export class Gameboard {
     console.log(target);
     if (target) {
       target.hit();
-      return "target hit " + target.hit();
+      return "target hit ";
     } else {
       this.missedShots.push([row, col]);
       return "target miss";

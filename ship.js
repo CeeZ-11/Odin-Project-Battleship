@@ -5,7 +5,10 @@ export class Ship {
   }
 
   hit() {
-    return this.hits++;
+    if (this.hits < this.length) {
+      this.hits++;
+      console.log("hit " + this.hits);
+    }
   }
 
   isSunk() {
