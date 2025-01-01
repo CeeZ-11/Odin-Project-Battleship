@@ -21,6 +21,7 @@ export const GameController = () => {
       "Computer's ship coordinates:",
       computer.gameboard.getShipCoordinates()
     );
+    console.log(JSON.stringify(player.gameboard));
     console.log(JSON.stringify(computer.gameboard));
   }
 
