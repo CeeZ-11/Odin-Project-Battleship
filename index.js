@@ -14,6 +14,14 @@ export const GameController = () => {
     computer.gameboard.placeShip(new Ship(3), 4, 4, "horizontal");
     renderBoards();
     renderAttackInput();
+    console.log(
+      "Player's ship coordinates:",
+      player.gameboard.getShipCoordinates()
+    );
+    console.log(
+      "Computer's ship coordinates:",
+      computer.gameboard.getShipCoordinates()
+    );
   }
 
   function renderBoards() {

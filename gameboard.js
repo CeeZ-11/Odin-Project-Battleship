@@ -43,7 +43,7 @@ export class Gameboard {
   }
 
   receiveAttack(row, col) {
-    const target = this.board[col][row];
+    const target = this.board[row][col];
     if (target) {
       target.hit();
       return "target hit";
@@ -51,6 +51,18 @@ export class Gameboard {
       this.missedShots.push([row, col]);
       return "target miss";
     }
+  }
+
+  getShipCoordinates() {
+    const coordinates = [];
+    for (let row = 0; row < this.board.length; row++) {
+      for (let col = 0; col < this.board[row].length; col++) {
+        if (this.board[row][col] !== null) {
+          coordinates.push([row, col]);
+        }
+      }
+    }
+    return coordinates;
   }
 
   allShipReport() {
