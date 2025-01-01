@@ -21,6 +21,9 @@ const GameController = () => {
 
   function renderAttackInput() {
     const attackInput = document.getElementById("attack");
+
+    attackInput.innerHTML = "";
+
     const button = document.createElement("button");
     button.textContent = "Attack";
     button.classList.add("attack");
