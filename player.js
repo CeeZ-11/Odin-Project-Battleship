@@ -4,4 +4,8 @@ export class Player {
     this.name = name;
     this.gameboard = new Gameboard();
   }
+
+  attack(opponentGameboard, x, y) {
+    return opponentGameboard.receiveAttack(x, y);
+  }
 }
