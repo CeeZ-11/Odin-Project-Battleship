@@ -10,7 +10,7 @@ export function addStartButtonListener() {
   }
 }
 
-export function addFormSubmitListener(formId) {
+/* export function addFormSubmitListener(formId) {
   const form = document.getElementById(formId);
   if (form) {
     form.addEventListener("submit", (event) => {
@@ -36,4 +36,4 @@ export function addFormSubmitListener(formId) {
       }
     });
   }
-}
+} */

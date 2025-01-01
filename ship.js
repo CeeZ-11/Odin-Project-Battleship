@@ -7,7 +7,7 @@ export class Ship {
   hit() {
     if (this.hits < this.length) {
       this.hits++;
-      console.log("hit " + this.hits);
+      console.log("hit");
     }
   }
 
