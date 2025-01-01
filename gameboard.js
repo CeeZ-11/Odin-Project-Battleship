@@ -5,7 +5,11 @@ export class Gameboard {
     this.ships = [];
   }
 
-  renderBoard() {
+  renderBoard(player) {
+    player
+      ? (this.board.id = "player-board")
+      : (this.board.id = "computer-board");
+
     return this.board
       .map((row, rowIndex) =>
         row

@@ -9,7 +9,7 @@ export const GameController = () => {
     player.gameboard.placeShip(new Ship(3), 0, 0, "vertical");
     computer.gameboard.placeShip(new Ship(3), 4, 4, "horizontal");
 
-    renderBoards();
+    renderBoards(player);
 
     /* renderAttackInput(); */
 
