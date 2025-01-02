@@ -7,6 +7,11 @@ export function addStartButtonListener() {
       const game = GameController();
       game.displayShip();
       game.renderBoards();
+
+      const board = document.querySelector("#computer-board");
+      if (board.classList.contains("inactive")) {
+        game.setBoardActiveToggle();
+      }
     });
   }
 }

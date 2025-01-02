@@ -8,12 +8,12 @@ export const GameController = () => {
   function initializer() {
     renderBoards();
     /* renderAttackInput(); */
-    setComputerBoardInactive();
+    setBoardActiveToggle();
   }
 
-  function setComputerBoardInactive() {
+  function setBoardActiveToggle() {
     const board = document.querySelector("#computer-board");
-    board.classList.add("inactive");
+    board.classList.toggle("inactive");
   }
 
   function displayShip() {
@@ -86,6 +86,7 @@ export const GameController = () => {
     displayShipHitCounts,
     displayShip,
     renderBoards,
+    setBoardActiveToggle,
   };
 };
 
