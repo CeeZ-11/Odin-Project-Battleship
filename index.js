@@ -9,7 +9,7 @@ export const GameController = () => {
     player.gameboard.placeShip(new Ship(3), 0, 0, "vertical");
     computer.gameboard.placeShip(new Ship(3), 4, 4, "horizontal");
 
-    renderBoards(player);
+    renderBoards();
 
     /* renderAttackInput(); */
 
@@ -28,8 +28,9 @@ export const GameController = () => {
   function renderBoards() {
     document.getElementById("player-board").innerHTML =
       player.gameboard.renderBoard();
+
     document.getElementById("computer-board").innerHTML =
-      computer.gameboard.renderBoard();
+      computer.gameboard.renderBoard(computer);
   }
 
   function playerTurn(x, y) {

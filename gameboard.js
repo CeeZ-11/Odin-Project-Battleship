@@ -5,17 +5,17 @@ export class Gameboard {
     this.ships = [];
   }
 
-  renderBoard(player) {
-    player
-      ? (this.board.id = "player-board")
-      : (this.board.id = "computer-board");
+  renderBoard(computer) {
+    let cells = "active";
+
+    computer ? (cells = "hidden") : (cells = "active");
 
     return this.board
       .map((row, rowIndex) =>
         row
           .map(
             (cell, colIndex) =>
-              `<div class="cell" data-row="${rowIndex}" data-col="${colIndex}">${
+              `<div class="${cells}" data-row="${rowIndex}" data-col="${colIndex}">${
                 cell ? "S" : ""
               }</div>`
           )

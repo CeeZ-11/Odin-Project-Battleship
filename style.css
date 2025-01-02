@@ -24,7 +24,8 @@ body {
   --grid-line-color: #3e4c59;
   --cell-bg-color: #fff;
   --cell-border-color: #415a77;
-  --cell-hover-bg-color: #778da9;
+  --cell-hidden-bg-color: #020202;
+  --cell-hidden-border-color: #3e4c59;
 }
 
 img,
@@ -121,7 +122,7 @@ button:hover {
   grid-template-rows: repeat(10, 30px);
 }
 
-.cell {
+.active {
   width: 30px;
   height: 30px;
   background-color: var(--cell-bg-color);
@@ -133,13 +134,20 @@ button:hover {
   cursor: pointer;
 }
 
-.cell:hover {
-  background-color: var(--cell-hover-bg-color);
-  color: var(--primary-color);
-}
-
 .boards {
   display: flex;
   gap: 10px;
   flex-direction: column;
+}
+
+.hidden {
+  background-color: var(--cell-hidden-bg-color);
+  border: 1px solid var(--cell-hidden-border-color);
+  color: var(--cell-hidden-bg-color);
+  transition: transform ease 0.2s;
+}
+
+.hidden:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
