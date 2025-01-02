@@ -7,8 +7,13 @@ const computer = new Player("Computer");
 export const GameController = () => {
   function initializer() {
     renderBoards();
-
     /* renderAttackInput(); */
+    setComputerBoardInactive();
+  }
+
+  function setComputerBoardInactive() {
+    const board = document.querySelector("#computer-board");
+    board.classList.add("inactive");
   }
 
   function displayShip() {
