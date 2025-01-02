@@ -26,6 +26,8 @@ body {
   --cell-border-color: #415a77;
   --cell-hidden-bg-color: #020202;
   --cell-hidden-border-color: #3e4c59;
+  --cell-ship-bg-color: #005177;
+  --cell-ship-border-color: #003b51;
 }
 
 img,
@@ -155,4 +157,9 @@ button:hover {
 .inactive {
   cursor: not-allowed;
   pointer-events: none;
+}
+
+.player-ship {
+  background-color: var(--cell-ship-bg-color);
+  border: 1px solid var(--cell-ship-border-color);
 }

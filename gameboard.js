@@ -6,18 +6,25 @@ export class Gameboard {
   }
 
   renderBoard(computer) {
-    let cells = "active";
+    let cells = "";
+    let ship = "";
 
-    computer ? (cells = "hidden") : (cells = "active");
+    if (computer) {
+      cells = "hidden";
+      ship = "";
+    } else {
+      cells = "active";
+      ship = "player-ship";
+    }
 
     return this.board
       .map((row, rowIndex) =>
         row
           .map(
             (cell, colIndex) =>
-              `<div class="${cells}" data-row="${rowIndex}" data-col="${colIndex}">${
-                cell ? "S" : ""
-              }</div>`
+              `<div class="${cells} ${
+                cell ? ship : ""
+              }" data-row="${rowIndex}" data-col="${colIndex}"></div>`
           )
           .join("")
       )
