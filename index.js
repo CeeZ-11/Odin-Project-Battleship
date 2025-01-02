@@ -6,12 +6,14 @@ const player = new Player("Player");
 const computer = new Player("Computer");
 export const GameController = () => {
   function initializer() {
-    player.gameboard.placeShip(new Ship(3), 0, 0, "vertical");
-    computer.gameboard.placeShip(new Ship(3), 4, 4, "horizontal");
-
     renderBoards();
 
     /* renderAttackInput(); */
+  }
+
+  function displayShip() {
+    player.gameboard.placeShip(new Ship(3), 0, 0, "vertical");
+    computer.gameboard.placeShip(new Ship(3), 4, 4, "horizontal");
 
     console.log(
       "Player's ship coordinates:",
@@ -73,7 +75,13 @@ export const GameController = () => {
     computerShipHitCount.innerHTML = computerHitCounts;
   }
 
-  return { initializer, playerTurn, displayShipHitCounts };
+  return {
+    initializer,
+    playerTurn,
+    displayShipHitCounts,
+    displayShip,
+    renderBoards,
+  };
 };
 
 document.addEventListener("DOMContentLoaded", () => {
