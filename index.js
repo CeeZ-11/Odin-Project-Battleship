@@ -41,8 +41,15 @@ export const GameController = () => {
   }
 
   function playerTurn(x, y) {
-    const result = player.attack(computer.gameboard, x, y);
+    const data = player.attack(computer.gameboard, x, y);
+
+    const result = data.result;
+    const target = data.target;
+
     console.log(`Player attacked (${x}, ${y}) and it was a ${result}`);
+
+    cellAttackedColor(result, target);
+
     if (computer.gameboard.allShipReport() === true) {
       console.log("Player wins!");
     } else {
@@ -58,8 +65,15 @@ export const GameController = () => {
     } while (
       computer.gameboard.missedShots.some(([mx, my]) => mx === x && my === y)
     );
-    const result = computer.attack(player.gameboard, x, y);
+    const data = computer.attack(player.gameboard, x, y);
+
+    const result = data.result;
+    const target = data.target;
+
     console.log(`Computer attacked (${x}, ${y}) and it was a ${result}`);
+
+    cellAttackedColor(result, target);
+
     if (player.gameboard.allShipReport() === true) {
       console.log("Computer wins!");
     }
@@ -78,6 +92,14 @@ export const GameController = () => {
 
     playerShipHitCount.innerHTML = playerHitCounts;
     computerShipHitCount.innerHTML = computerHitCounts;
+  }
+
+  function cellAttackedColor(result, cell) {
+    if (result === "target hit") {
+      cell.classList.add("cell-ship-hit");
+    } else {
+      cell.classList.add("cell-miss-hit");
+    }
   }
 
   return {

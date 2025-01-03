@@ -6,7 +6,7 @@ export class Player {
   }
 
   attack(opponentGameboard, x, y) {
-    return opponentGameboard.receiveAttack(x, y);
+    return opponentGameboard.receiveAttack(x, y, this.name);
   }
 
   getShipHitCounts() {

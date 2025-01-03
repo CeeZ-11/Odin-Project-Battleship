@@ -52,16 +52,36 @@ export class Gameboard {
     return true;
   }
 
-  receiveAttack(row, col) {
+  receiveAttack(row, col, player) {
     const target = this.board[row][col];
-    console.log(target);
+    const targetCell = this.getCell(row, col, player);
+
     if (target) {
       target.hit();
-      return "target hit ";
+      return { result: "target hit", target: targetCell };
     } else {
       this.missedShots.push([row, col]);
-      return "target miss";
+      return { result: "target miss", target: targetCell };
     }
+  }
+
+  getCell(row, col, player) {
+    const cellClass = player === "Player" ? ".hidden" : ".cell";
+
+    const cells = document.querySelectorAll(cellClass);
+
+    let targetCell;
+
+    cells.forEach((cell) => {
+      if (
+        cell.dataset.row === String(row) &&
+        cell.dataset.col === String(col)
+      ) {
+        targetCell = cell;
+      }
+    });
+
+    return targetCell;
   }
 
   getShipCoordinates() {
