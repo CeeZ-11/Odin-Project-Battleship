@@ -7,9 +7,7 @@ export function addStartButtonListener() {
       const game = GameController();
 
       game.displayShip();
-
       game.renderBoards();
-
       game.displayShipHitCounts();
 
       const board = document.querySelector("#computer-board");
@@ -34,6 +32,19 @@ export function cellAttackListener() {
       game.displayShipHitCounts();
     });
   });
+}
+
+export function addResetButtonListener() {
+  const button = document.getElementById("reset");
+  if (button) {
+    button.addEventListener("click", () => {
+      const game = GameController();
+      game.resetGame();
+      game.renderBoards();
+      game.displayShipHitCounts();
+      game.setBoardActiveToggle();
+    });
+  }
 }
 
 /* export function addFormSubmitListener(formId) {

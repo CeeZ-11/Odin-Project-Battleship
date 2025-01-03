@@ -1,4 +1,7 @@
-import { addStartButtonListener } from "./eventListeners.js";
+import {
+  addStartButtonListener,
+  addResetButtonListener,
+} from "./eventListeners.js";
 import { Player } from "./player.js";
 import { Ship } from "./ship.js";
 import { Gameboard } from "./gameboard.js";
@@ -142,6 +145,7 @@ export const GameController = () => {
 document.addEventListener("DOMContentLoaded", () => {
   const game = GameController();
   addStartButtonListener();
+  addResetButtonListener();
   game.initializer();
 });
 
