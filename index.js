@@ -55,6 +55,7 @@ export const GameController = () => {
 
   function computerTurn() {
     let x, y;
+
     do {
       x = getRandomCoordinate();
       y = getRandomCoordinate();
@@ -63,12 +64,16 @@ export const GameController = () => {
     );
     const data = computer.attack(player.gameboard, x, y);
 
-    const result = data.result;
-    const target = data.target;
+    if (data === null) {
+      computerTurn();
+    } else {
+      const result = data.result;
+      const target = data.target;
 
-    console.log(`Computer attacked (${x}, ${y}) and it was a ${result}`);
+      console.log(`Computer attacked (${x}, ${y}) and it was a ${result}`);
 
-    cellAttackedColor(result, target);
+      cellAttackedColor(result, target);
+    }
 
     if (player.gameboard.allShipReport() === true) {
       console.log("Computer wins!");
@@ -118,6 +123,7 @@ export const GameController = () => {
     displayShip,
     renderBoards,
     setBoardActiveToggle,
+    computerTurn,
   };
 };
 

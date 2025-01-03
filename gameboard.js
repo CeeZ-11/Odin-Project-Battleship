@@ -1,3 +1,4 @@
+import { GameController } from "./index.js";
 export class Gameboard {
   constructor() {
     this.board = Array.from({ length: 10 }, () => Array(10).fill(null));
@@ -56,11 +57,16 @@ export class Gameboard {
     const target = this.board[row][col];
     const targetCell = this.getCell(row, col, player);
 
+    if (targetCell.classList.contains("inactive") && player === "Computer") {
+      return null;
+    }
+
     if (target) {
       target.hit();
       return { result: "target hit", target: targetCell };
     } else {
       this.missedShots.push([row, col]);
+
       return { result: "target miss", target: targetCell };
     }
   }
