@@ -6,6 +6,13 @@ export class Gameboard {
     this.ships = [];
   }
 
+  clearBoard() {
+    this.board = Array.from({ length: 10 }, () => Array(10).fill(null));
+    this.missedShots = [];
+    this.hitShots = [];
+    this.ships = [];
+  }
+
   renderBoard(computer) {
     let cells = "";
     let ship = "";
