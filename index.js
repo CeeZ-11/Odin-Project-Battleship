@@ -97,8 +97,10 @@ export const GameController = () => {
   function cellAttackedColor(result, cell) {
     if (result === "target hit") {
       cell.classList.add("cell-ship-hit");
+      cell.classList.add("inactive");
     } else {
       cell.classList.add("cell-miss-hit");
+      cell.classList.add("inactive");
     }
   }
 
