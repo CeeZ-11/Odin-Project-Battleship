@@ -50,11 +50,7 @@ export const GameController = () => {
 
     cellAttackedColor(result, target);
 
-    if (computer.gameboard.allShipReport() === true) {
-      console.log("Player wins!");
-    } else {
-      computerTurn();
-    }
+    getWinner();
   }
 
   function computerTurn() {
@@ -101,6 +97,17 @@ export const GameController = () => {
     } else {
       cell.classList.add("cell-miss-hit");
       cell.classList.add("inactive");
+    }
+  }
+
+  function getWinner() {
+    const playerWin = computer.gameboard.allShipReport();
+    console.log(computer.gameboard.allShipReport());
+
+    if (playerWin === true) {
+      console.log("Player wins!");
+    } else {
+      computerTurn();
     }
   }
 

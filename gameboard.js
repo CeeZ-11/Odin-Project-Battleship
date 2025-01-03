@@ -97,6 +97,6 @@ export class Gameboard {
   }
 
   allShipReport() {
-    return this.ships.map((ship) => ship.isSunk());
+    return this.ships.every((ship) => ship.isSunk());
   }
 }
