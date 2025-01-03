@@ -56,7 +56,8 @@ export const GameController = () => {
       x = getRandomCoordinate();
       y = getRandomCoordinate();
     } while (
-      player.gameboard.missedShots.some(([mx, my]) => mx === x && my === y)
+      player.gameboard.missedShots.some(([mx, my]) => mx === x && my === y) ||
+      player.gameboard.hitShots.some(([mx, my]) => mx === x && my === y)
     );
 
     const result = computer.attack(player.gameboard, x, y);

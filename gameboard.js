@@ -2,6 +2,7 @@ export class Gameboard {
   constructor() {
     this.board = Array.from({ length: 10 }, () => Array(10).fill(null));
     this.missedShots = [];
+    this.hitShots = [];
     this.ships = [];
   }
 
@@ -57,6 +58,8 @@ export class Gameboard {
     const targetCell = this.getCell(row, col, player);
 
     if (target) {
+      this.hitShots.push([row, col]);
+
       target.hit();
       return { result: "target hit", target: targetCell };
     } else {
