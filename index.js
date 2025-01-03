@@ -68,6 +68,7 @@ export const GameController = () => {
 
     if (player.gameboard.allShipReport() === true) {
       console.log("Computer wins!");
+      disableBoards();
     }
   }
 
@@ -101,9 +102,18 @@ export const GameController = () => {
 
     if (playerWin === true) {
       console.log("Player wins!");
+      disableBoards();
     } else {
       computerTurn();
     }
+  }
+
+  function disableBoards() {
+    const cboard = document.querySelector("#computer-board");
+    const pboard = document.querySelector("#player-board");
+
+    cboard.classList.add("inactive");
+    pboard.classList.add("inactive");
   }
 
   return {
