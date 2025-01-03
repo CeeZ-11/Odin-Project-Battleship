@@ -28,6 +28,10 @@ body {
   --cell-hidden-border-color: #3e4c59;
   --cell-ship-bg-color: #005177;
   --cell-ship-border-color: #003b51;
+  --cell-hit-bg-color: #ff6b6b;
+  --cell-hit-border-color: #a43d3d;
+  --cell-miss-hit-bg-color: #778da9;
+  --cell-miss-hit-border-color: #415a77;
 }
 
 img,
@@ -162,4 +166,14 @@ button:hover {
 .player-ship {
   background-color: var(--cell-ship-bg-color);
   border: 1px solid var(--cell-ship-border-color);
+}
+
+.cell-miss-hit {
+  background-color: var(--cell-miss-hit-bg-color);
+  border: 1px solid var(--cell-miss-hit-border-color);
+}
+
+.cell-ship-hit {
+  background-color: var(--cell-hit-bg-color);
+  border: 1px solid var(--cell-hit-border-color);
 }
