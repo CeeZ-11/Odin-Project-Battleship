@@ -41,14 +41,10 @@ export const GameController = () => {
   }
 
   function playerTurn(x, y) {
-    const data = player.attack(computer.gameboard, x, y);
+    const result = player.attack(computer.gameboard, x, y);
 
-    const result = data.result;
-    const target = data.target;
-
-    console.log(`Player attacked (${x}, ${y}) and it was a ${result}`);
-
-    cellAttackedColor(result, target);
+    console.log(`Player attacked (${x}, ${y}) and it was a ${result.result}`);
+    cellAttackedColor(result.result, result.target);
 
     getWinner();
   }
@@ -60,20 +56,14 @@ export const GameController = () => {
       x = getRandomCoordinate();
       y = getRandomCoordinate();
     } while (
-      computer.gameboard.missedShots.some(([mx, my]) => mx === x && my === y)
+      player.gameboard.missedShots.some(([mx, my]) => mx === x && my === y)
     );
-    const data = computer.attack(player.gameboard, x, y);
 
-    if (data === null) {
-      computerTurn();
-    } else {
-      const result = data.result;
-      const target = data.target;
+    const result = computer.attack(player.gameboard, x, y);
 
-      console.log(`Computer attacked (${x}, ${y}) and it was a ${result}`);
+    console.log(`Computer attacked (${x}, ${y}) and it was a ${result.result}`);
 
-      cellAttackedColor(result, target);
-    }
+    cellAttackedColor(result.result, result.target);
 
     if (player.gameboard.allShipReport() === true) {
       console.log("Computer wins!");
@@ -107,7 +97,6 @@ export const GameController = () => {
 
   function getWinner() {
     const playerWin = computer.gameboard.allShipReport();
-    console.log(computer.gameboard.allShipReport());
 
     if (playerWin === true) {
       console.log("Player wins!");

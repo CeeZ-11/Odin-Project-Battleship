@@ -1,4 +1,3 @@
-import { GameController } from "./index.js";
 export class Gameboard {
   constructor() {
     this.board = Array.from({ length: 10 }, () => Array(10).fill(null));
@@ -56,10 +55,6 @@ export class Gameboard {
   receiveAttack(row, col, player) {
     const target = this.board[row][col];
     const targetCell = this.getCell(row, col, player);
-
-    if (targetCell.classList.contains("inactive") && player === "Computer") {
-      return null;
-    }
 
     if (target) {
       target.hit();
