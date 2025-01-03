@@ -1,7 +1,4 @@
-import {
-  addStartButtonListener,
-  cellAttackListener,
-} from "./eventListeners.js";
+import { addStartButtonListener } from "./eventListeners.js";
 import { Player } from "./player.js";
 import { Ship } from "./ship.js";
 

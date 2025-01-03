@@ -23,7 +23,6 @@ export function cellAttackListener() {
 
   cells.forEach((cell) => {
     cell.addEventListener("click", () => {
-      console.log("Player attacked");
       const game = GameController();
       const x = parseInt(cell.getAttribute("data-row"), 10);
       const y = parseInt(cell.getAttribute("data-col"), 10);
