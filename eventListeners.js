@@ -12,8 +12,25 @@ export function addStartButtonListener() {
       if (board.classList.contains("inactive")) {
         game.setBoardActiveToggle();
       }
+
+      cellAttackListener();
     });
   }
+}
+
+export function cellAttackListener() {
+  const cells = document.querySelectorAll(".hidden");
+
+  cells.forEach((cell) => {
+    cell.addEventListener("click", () => {
+      console.log("Player attacked");
+      const game = GameController();
+      const x = parseInt(cell.getAttribute("data-row"), 10);
+      const y = parseInt(cell.getAttribute("data-col"), 10);
+      game.playerTurn(x, y);
+      game.displayShipHitCounts();
+    });
+  });
 }
 
 /* export function addFormSubmitListener(formId) {

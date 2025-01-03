@@ -11,9 +11,8 @@ export class Gameboard {
 
     if (computer) {
       cells = "hidden";
-      ship = "";
     } else {
-      cells = "active";
+      cells = "cell";
       ship = "player-ship";
     }
 
