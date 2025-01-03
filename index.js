@@ -1,6 +1,7 @@
 import { addStartButtonListener } from "./eventListeners.js";
 import { Player } from "./player.js";
 import { Ship } from "./ship.js";
+import { Gameboard } from "./gameboard.js";
 
 const player = new Player("Player");
 const computer = new Player("Computer");
@@ -17,6 +18,8 @@ export const GameController = () => {
   }
 
   function displayShip() {
+    resetGame();
+
     player.gameboard.placeShip(new Ship(3), 0, 0, "vertical");
     computer.gameboard.placeShip(new Ship(3), 4, 4, "horizontal");
 
@@ -116,6 +119,14 @@ export const GameController = () => {
     pboard.classList.add("inactive");
   }
 
+  function resetGame() {
+    player.gameboard = new Gameboard();
+    computer.gameboard = new Gameboard();
+
+    player.gameboard.placeShip(new Ship(3), 0, 0, "vertical");
+    computer.gameboard.placeShip(new Ship(3), 4, 4, "horizontal");
+  }
+
   return {
     initializer,
     playerTurn,
@@ -124,6 +135,7 @@ export const GameController = () => {
     renderBoards,
     setBoardActiveToggle,
     computerTurn,
+    resetGame,
   };
 };
 

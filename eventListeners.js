@@ -5,8 +5,12 @@ export function addStartButtonListener() {
   if (button) {
     button.addEventListener("click", () => {
       const game = GameController();
+
       game.displayShip();
+
       game.renderBoards();
+
+      game.displayShipHitCounts();
 
       const board = document.querySelector("#computer-board");
       if (board.classList.contains("inactive")) {
