@@ -123,11 +123,8 @@ export const GameController = () => {
   }
 
   function resetGame() {
-    player.gameboard = new Gameboard();
-    computer.gameboard = new Gameboard();
-
-    player.gameboard.placeShip(new Ship(3), 0, 0, "vertical");
-    computer.gameboard.placeShip(new Ship(3), 4, 4, "horizontal");
+    player.gameboard.clearBoard();
+    computer.gameboard.clearBoard();
   }
 
   return {
